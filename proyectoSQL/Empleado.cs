@@ -64,7 +64,7 @@ namespace proyectoSQL
             string pais = txtPais.Text;
             string telefono = txtTelefono.Text;
             string biblioteca = txtIDBIblitoeca.Text;
-            consulta = consulta = "UPDATE Empleado SET nombre = '" + nombre + "','" + aPaterno + "','" + aMaterno + "','" + rfc + "','" + calle + "','" + numero + "'+'" + cuidad + "','" + estado + "','" + pais + "','" + telefono + "', '" + biblioteca + "' WHERE idEmpeldao = " + idEmpeldao.ToString();
+            consulta = "UPDATE Empleado SET nombre = '" + nombre + "',apellidoPaterno = '" + aPaterno + "',apellidoMaterno = '" + aMaterno + "',rfc = '" + rfc + "',calle = '" + calle + "', numero = '" + numero + "', cuidad = '" + cuidad + "', estado = '" + estado + "',pais = '" + pais + "',telefono = '" + telefono + "', idBiblioteca = '" + biblioteca + "' WHERE idEmpeldao = " + idEmpeldao.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
             txtNombre.Clear();
@@ -84,7 +84,7 @@ namespace proyectoSQL
         private void btnBorrar_Click(object sender, EventArgs e)
         {
             int idEmpeldao = (int)dgvActividadPrograma.SelectedRows[0].Cells[0].Value;
-            consulta = "UPDATE Empeldao SET ESTATUS = 0 WHERE idEmpeldao =" + idEmpeldao.ToString();
+            consulta = "UPDATE Empeldao SET ESTATUS = false WHERE idEmpeldao =" + idEmpeldao.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
         }

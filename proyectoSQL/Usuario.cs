@@ -61,7 +61,7 @@ namespace proyectoSQL
             string estado = txtEstado.Text;
             string pais = txtPais.Text;
             string telefono = txtTelefono.Text;
-            consulta = consulta = "UPDATE Proveedor SET nombre = '" + nombre + "', '" + aPaterno + "','" + aMaterno + "','" + calle + "','" + colonia + "','" + numero + "','" + cuidad + "','" + estado + "','" + pais + "','" + telefono + "' WHERE idUsuario = " + idUsuario.ToString();
+            consulta = "UPDATE Usuario SET nombre = '" + nombre + "', apellidoPaterno = '" + aPaterno + "',apellidoMaterno = '" + aMaterno + "',calle = '" + calle + "',numeroExterior = '" + numero + "',cuidad = '" + cuidad + "',estado = '" + estado + "',pais = '" + pais + "',telefono = '" + telefono + "' WHERE idUsuario = " + idUsuario.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
             txtNombre.Clear();
@@ -79,29 +79,9 @@ namespace proyectoSQL
         private void btnBorrar_Click(object sender, EventArgs e)
         {
             int idUsuario = (int)dgvActividadPrograma.SelectedRows[0].Cells[0].Value;
-            string nombre = txtNombre.Text;
-            string aPaterno = txtApaterno.Text;
-            string aMaterno = txtAmaterno.Text;
-            string calle = txtCalle.Text;
-            string colonia = txtColonia.Text;
-            string numero = txtNumero.Text;
-            string cuidad = txtCuidadd.Text;
-            string estado = txtEstado.Text;
-            string pais = txtPais.Text;
-            string telefono = txtTelefono.Text;
-            consulta = consulta = "UPDATE Usuario SET nombre = '" + nombre + "', '" + aPaterno + "','" + aMaterno + "','" + calle + "','" + colonia + "','" + numero + "','" + cuidad + "','" + estado + "','" + pais + "','" + telefono + "' WHERE idUsuario = " + idUsuario.ToString();
+            consulta = "UPDATE Usuario SET ESTATUS = false WHERE idUsuario =" + idUsuario.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
-            txtNombre.Clear();
-            txtApaterno.Clear();
-            txtAmaterno.Clear();
-            txtCalle.Clear();
-            txtColonia.Clear();
-            txtNumero.Clear();
-            txtCuidadd.Clear();
-            txtEstado.Clear();
-            txtPais.Clear();
-            txtTelefono.Clear();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

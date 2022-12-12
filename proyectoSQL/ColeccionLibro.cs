@@ -37,7 +37,7 @@ namespace proyectoSQL
             int idColeccionLibro = (int)dgvActividad.SelectedRows[0].Cells[0].Value;
             string idColeccion = txtIDColeccion.Text;
             string idLibro = txtIDLibro.Text;
-            consulta = consulta = "UPDATE ColeccionLibro SET idColeccion = '" + idColeccion + "', '" + idLibro + "' WHERE idBoveda = " + idColeccionLibro.ToString();
+            consulta = "UPDATE ColeccionLibro SET idColeccion = '" + idColeccion + "', idLibro = '" + idLibro + "' WHERE idColeccionLibro = " + idColeccionLibro.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
             txtIDColeccion.Clear();
@@ -47,7 +47,7 @@ namespace proyectoSQL
         private void btnBorrar_Click(object sender, EventArgs e)
         {
             int idColeccionLibro = (int)dgvActividad.SelectedRows[0].Cells[0].Value;
-            consulta = "UPDATE ColeccionLibro SET ESTATUS = 0 WHERE idColeccionLibro =" + idColeccionLibro.ToString();
+            consulta = "UPDATE ColeccionLibro SET ESTATUS = false WHERE idColeccionLibro =" + idColeccionLibro.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
         }

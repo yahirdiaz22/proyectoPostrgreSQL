@@ -53,7 +53,7 @@ namespace proyectoSQL
             string fechainicio = txtFechaInicio.Text;
             string fechafinal = txtFechaFiinal.Text;
             string idBiblioteca = txtIDBil.Text;
-            consulta = consulta = "UPDATE Clasificacion SET marca = '" + marca + "', '" + numero + "','" + fechainicio + "', '" + fechafinal + "','" + idBiblioteca + "' WHERE idEquipoComputo = " + idEquipoComputo.ToString();
+            consulta = "UPDATE EquipoComputo SET marca = '" + marca + "', numeroEquipo = '" + numero + "',fechaInicio = '" + fechainicio + "',fechaFinal = '" + fechafinal + "',idBiblioteca = '" + idBiblioteca + "' WHERE idEquipoComputo = " + idEquipoComputo.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
             txtMarca.Clear();
@@ -66,7 +66,7 @@ namespace proyectoSQL
         private void btnBorrar_Click(object sender, EventArgs e)
         {
             int idEquipoComputo = (int)dgvActividadPrograma.SelectedRows[0].Cells[0].Value;
-            consulta = "UPDATE EquipoComputo SET ESTATUS = 0 WHERE idEquipoComputo =" + idEquipoComputo.ToString();
+            consulta = "UPDATE EquipoComputo SET ESTATUS = false WHERE idEquipoComputo =" + idEquipoComputo.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
         }

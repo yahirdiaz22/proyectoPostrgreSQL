@@ -44,7 +44,7 @@ namespace proyectoSQL
             string descripcion = txtDescripcion.Text;
             string fecha = txtFecha.Text;
             string empleado = txtIDEmpleado.Text;
-            consulta = consulta = "UPDATE Inventario SET descripcion = '" + descripcion + "', '" + fecha + "','" + empleado + "' WHERE idInventario = " + idInventario.ToString();
+            consulta = "UPDATE Inventario SET descripcion = '" + descripcion + "',fecha = '" + fecha + "',idEmpleado ='" + empleado + "' WHERE idInventario = " + idInventario.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
             txtIDEmpleado.Clear();
@@ -55,7 +55,7 @@ namespace proyectoSQL
         private void btnBorrar_Click(object sender, EventArgs e)
         {
             int idInventario = (int)dgvActividad.SelectedRows[0].Cells[0].Value;
-            consulta = "UPDATE Inventario SET ESTATUS = 0 WHERE idInventario =" + idInventario.ToString();
+            consulta = "UPDATE Inventario SET ESTATUS = false WHERE idInventario =" + idInventario.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
         }

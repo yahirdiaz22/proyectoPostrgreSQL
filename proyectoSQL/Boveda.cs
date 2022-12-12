@@ -46,7 +46,7 @@ namespace proyectoSQL
             string mobiliario = txtMobiliario.Text;
             string material = txtMaterial.Text;
             string idBiblioteca = txtidBiblio.Text;
-            consulta = consulta = "UPDATE Boveda SET nombre = '" + nombre + "', '" + mobiliario + "', '" + material + "', '" + idBiblioteca + "' WHERE idBoveda = " + idBoveda.ToString();
+            consulta = "UPDATE Boveda SET nombreLibro = '" + nombre + "',mobiliario =  '" + mobiliario + "', material = '" + material + "', idBiblioteca = '" + idBiblioteca + "' WHERE idBoveda = " + idBoveda.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
             txtNombre.Clear();
@@ -58,7 +58,7 @@ namespace proyectoSQL
         private void btnBorrar_Click(object sender, EventArgs e)
         {
             int idBoveda = (int)dgvActividad.SelectedRows[0].Cells[0].Value;
-            consulta = "UPDATE Boveda SET ESTATUS = 0 WHERE idBoveda =" + idBoveda.ToString();
+            consulta = "UPDATE Boveda SET ESTATUS = false WHERE idBoveda =" + idBoveda.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
         }

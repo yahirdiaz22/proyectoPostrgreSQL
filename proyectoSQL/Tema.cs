@@ -38,7 +38,7 @@ namespace proyectoSQL
             int idTema = (int)dgvActividad.SelectedRows[0].Cells[0].Value;
             string tema = txtTema.Text;
             string descripcion = txtDescripcion.Text;
-            consulta = consulta = "UPDATE Tema SET tema = '" + tema + descripcion + "' WHERE idTema = " + idTema.ToString();
+            consulta = "UPDATE Tema  SET tema = '" + tema + "', desrcipcion = '" + descripcion + "' WHERE idTema = " + idTema.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
             txtDescripcion.Clear();
@@ -48,7 +48,7 @@ namespace proyectoSQL
         private void btnBorrar_Click(object sender, EventArgs e)
         {
             int idTema = (int)dgvActividad.SelectedRows[0].Cells[0].Value;
-            consulta = "UPDATE Tema SET ESTATUS = 0 WHERE idTema =" + idTema.ToString();
+            consulta = "UPDATE Tema SET ESTATUS = false WHERE idTema =" + idTema.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
         }

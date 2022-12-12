@@ -49,7 +49,7 @@ namespace proyectoSQL
             string aPaterno = txtApaterno.Text;
             string aMaterno = txtAMaterno.Text;
             string idUsuario = txtIDUsuario.Text;
-            consulta = consulta = "UPDATE RegistroVisita SET fechaLlegada = '" + fechallegada + "', '" + fechaida + "','" + nombre + "', '" + aPaterno + "','" + aMaterno + "', '" + idUsuario + "' WHERE idRegistroVisita = " + idRegistroVisita.ToString();
+            consulta = "UPDATE RegistroVisita SET fechaLlegada = '" + fechallegada + "', fechaIda =  '" + fechaida + "',nombre = '" + nombre + "', apellidoPaterno = '" + aPaterno + "', apellidoMaterno = '" + aMaterno + "', idUsuario = '" + idUsuario + "' WHERE idRegistroVisita = " + idRegistroVisita.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
             txtApaterno.Clear();
@@ -63,7 +63,7 @@ namespace proyectoSQL
         private void btnBorrar_Click(object sender, EventArgs e)
         {
             int idRegistroVisita = (int)dgvActividad.SelectedRows[0].Cells[0].Value;
-            consulta = "UPDATE RegistroVisita SET ESTATUS = 0 WHERE idRegistroVisita =" + idRegistroVisita.ToString();
+            consulta = "UPDATE RegistroVisita SET ESTATUS = false WHERE idRegistroVisita =" + idRegistroVisita.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
         }

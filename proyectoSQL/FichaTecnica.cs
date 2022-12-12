@@ -50,7 +50,7 @@ namespace proyectoSQL
             string titulo = txtTitulo.Text;
             string ilustrador = txtIlustrador.Text;
             string libro = txtIDLibro.Text;
-            consulta = consulta = "UPDATE FichaTecnica SET año = '" + año + "', '" + sinopsis + "','" + idioma + "', '" + titulo + "','" + idioma + "', '" + libro + "' WHERE idFichaTecnica = " + idFichaTecnica.ToString();
+            consulta = "UPDATE FichaTecnica SET fecha = '" + año + "', sinopsis = '" + sinopsis + "', idiomaOriginal ='" + idioma + "', titulo = '" + titulo + "',ilustradorOriginal = '" + ilustrador + "', idLibro = '" + libro + "' WHERE idFichaTecnica = " + idFichaTecnica.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
             txtTitulo.Clear();
@@ -65,7 +65,7 @@ namespace proyectoSQL
         private void btnBorrar_Click(object sender, EventArgs e)
         {
             int idFichaTecnica = (int)dgvActividad.SelectedRows[0].Cells[0].Value;
-            consulta = "UPDATE iichaTecnica SET ESTATUS = 0 WHERE idFichaTecnica =" + idFichaTecnica.ToString();
+            consulta = "UPDATE iichaTecnica SET ESTATUS = false WHERE idFichaTecnica =" + idFichaTecnica.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
         }

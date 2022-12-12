@@ -51,7 +51,7 @@ namespace proyectoSQL
             string descripcion = txtDescripcion.Text;
             string fecha = txtfecg.Text;
             string idLibro = txtLibro.Text;
-            consulta = consulta = "UPDATE Copias SET numero = '" + numero + "', '" + descripcion + "', '" + fecha + "', '" + idLibro + "' WHERE idCopias = " + idCopias.ToString();
+            consulta = "UPDATE Copias SET numCopias = '" + numero + "', descripcion = '" + descripcion + "', fecha = '" + fecha + "', idLibro = '" + idLibro + "' WHERE idCopias = " + idCopias.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
             txtNumero.Clear();
@@ -63,7 +63,7 @@ namespace proyectoSQL
         private void btnBorrar_Click(object sender, EventArgs e)
         {
             int idCopias = (int)dgvActividadPrograma.SelectedRows[0].Cells[0].Value;
-            consulta = "UPDATE Copias SET ESTATUS = 0 WHERE idCopias =" + idCopias.ToString();
+            consulta = "UPDATE Copias SET ESTATUS = false WHERE idCopias =" + idCopias.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
         }

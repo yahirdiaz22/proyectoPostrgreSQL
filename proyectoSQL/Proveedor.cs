@@ -74,7 +74,7 @@ namespace proyectoSQL
             string pais = txtPais.Text;
             string telefono = txtTelefono.Text;
             string idPedido = txtIDPedido.Text;
-            consulta = consulta = "UPDATE Proveedor SET nombre = '" + nombre + "', '" + aPaterno + "','" + aMaterno + "','" + rfc + "','" + calle + "','" + colonia + "','" + numero + "','" + cuidad + "','" + estado + "','" + pais + "','" + telefono + "','" + idPedido + "' WHERE idProveedor = " + idProveedor.ToString();
+            consulta = "UPDATE Proveedor SET nombre = '" + nombre + "', apellidoPaterno = '" + aPaterno + "',apellidoMaterno = '" + aMaterno + "',rfc = '" + rfc + "',calle = '" + calle + "',colonia = '" + colonia + "',numeroExterior = '" + numero + "',cuidad = '" + cuidad + "',estado = '" + estado + "',pais = '" + pais + "',telefono = '" + telefono + "',idPedido = '" + idPedido + "' WHERE idProveedor = " + idProveedor.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
             txtNombre.Clear();
@@ -94,7 +94,7 @@ namespace proyectoSQL
         private void btnBorrar_Click(object sender, EventArgs e)
         {
             int idProveedor = (int)dgvActividadPrograma.SelectedRows[0].Cells[0].Value;
-            consulta = "UPDATE Proveedor SET ESTATUS = 0 WHERE idProveedor =" + idProveedor.ToString();
+            consulta = "UPDATE Proveedor SET ESTATUS = false WHERE idProveedor =" + idProveedor.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
             txtNombre.Clear();

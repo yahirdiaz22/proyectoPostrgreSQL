@@ -43,7 +43,7 @@ namespace proyectoSQL
             string intercambio = txtIntercambio.Text;
             string donacion = txtDonacion.Text;
             int idAdquisicion = (int)dgvAdquisicion.SelectedRows[0].Cells[0].Value;
-            consulta = "  UPDATE Adquisicion SET nombreActividad ='" + compra + "','" + suscripcion + "','" + donacion  + "'WHERE idAdquisicion = " + idAdquisicion.ToString();
+            consulta = "  UPDATE Adquisicion SET compra ='" + compra + "', suscripcion ='" + suscripcion + "',intercambio  ='" + intercambio + "',donacion ='" + donacion + "' WHERE idAdquisicion = " + idAdquisicion.ToString();
             conexion.Open();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
@@ -61,7 +61,7 @@ namespace proyectoSQL
         private void btnBorrar_Click(object sender, EventArgs e)
         {
             int idAdquisicion = (int)dgvAdquisicion.SelectedRows[0].Cells[0].Value;
-            consulta = "UPDATE Adquisicion SET ESTATUS = 0 WHERE idAdquisicion =" + idAdquisicion.ToString();
+            consulta = "UPDATE Adquisicion SET ESTATUS = false WHERE idAdquisicion =" + idAdquisicion.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
         }

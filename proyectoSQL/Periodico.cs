@@ -49,7 +49,7 @@ namespace proyectoSQL
             string descripcion = txtDescripcion.Text;
             string titulo = txtTitulo.Text;
             string idImprenta = txtIDImprenta.Text;
-            consulta = consulta = "UPDATE Periodico SET nombre = '" + nombre + "', '" + imprenta + "','" + fecha + "','" + descripcion + "','" + titulo + "','" + idImprenta + "' WHERE idPeriodico = " + idPeriodico.ToString();
+            consulta = "UPDATE Periodico SET nombre = '" + nombre + "', nombreImprenta = '" + imprenta + "',fecha = '" + fecha + "',descripcion = '" + descripcion + "',titulo = '" + titulo + "',idImprenta = '" + idImprenta + "' WHERE idPeriodico = " + idPeriodico.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
             txtFecha.Clear();
@@ -63,7 +63,7 @@ namespace proyectoSQL
         private void btnBorrar_Click(object sender, EventArgs e)
         {
             int idPeriodico = (int)dgvActividad.SelectedRows[0].Cells[0].Value;
-            consulta = "UPDATE Periodico SET ESTATUS = 0 WHERE idPeriodico =" + idPeriodico.ToString();
+            consulta = "UPDATE Periodico SET ESTATUS = false WHERE idPeriodico =" + idPeriodico.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
         }

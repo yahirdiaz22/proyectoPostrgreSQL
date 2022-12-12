@@ -63,7 +63,7 @@ namespace proyectoSQL
             string estado = txtEstado.Text;
             string pais = txtPais.Text;
             string telefono = txtTelefono.Text;
-            string idPrestamo = txtIDPrestamo.Text; consulta = consulta = "UPDATE Socio SET nombre = '" + nombre + "', '" + aPaterno + "','" + aMaterno + "','" + calle + "','" + colonia + "','" + numero + "','" + cuidad + "','" + estado + "','" + pais + "','" + telefono + "','" + idPrestamo + "' WHERE idPrestamo = " + idPrestamo.ToString();
+            string idPrestamo = txtIDPrestamo.Text; consulta = consulta = "UPDATE Socio SET nombre = '" + nombre + "', apellidoPaterno = '" + aPaterno + "',apellidoMaterno = '" + aMaterno + "',calle = '" + calle + "',colonina = '" + colonia + "',numeroExterior = '" + numero + "',cuidad = '" + cuidad + "',estado = '" + estado + "',pais = '" + pais + "',telefono = '" + telefono + "',idPrestamo = '" + idPrestamo + "' WHERE idSocio = " + idSocio.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
             txtNombre.Clear();
@@ -82,7 +82,7 @@ namespace proyectoSQL
         private void btnBorrar_Click(object sender, EventArgs e)
         {
             int idSocio = (int)dgvActividadPrograma.SelectedRows[0].Cells[0].Value;
-            consulta = "UPDATE Socio SET ESTATUS = 0 WHERE idSocio =" + idSocio.ToString();
+            consulta = "UPDATE Socio SET ESTATUS = false WHERE idSocio =" + idSocio.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
             txtNombre.Clear();

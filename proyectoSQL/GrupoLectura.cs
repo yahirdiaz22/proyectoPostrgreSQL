@@ -42,7 +42,7 @@ namespace proyectoSQL
             string descripcion = txtDesrcipcion.Text;
             string idBiblioteca = txtIDBiblioteca.Text;
             string idUSuario = txtIDUsuario.Text;
-            consulta = consulta = "UPDATE GrupoLectura SET descripcion = '" + descripcion + idBiblioteca + "' WHERE idGrupoLectura = " + idGrupoLectura.ToString();
+            consulta = "UPDATE GrupoLectura  SET descripcion = '" + descripcion + "', idBiblioteca = '" + idBiblioteca + "',idUsuario = '" + idUSuario + "'  WHERE idGrupoLectura  = " + idGrupoLectura.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
             txtDesrcipcion.Clear();
@@ -53,7 +53,7 @@ namespace proyectoSQL
         private void btnBorrar_Click(object sender, EventArgs e)
         {
             int idGrupoLectura = (int)dgvActividad.SelectedRows[0].Cells[0].Value;
-            consulta = "UPDATE GrupoLectura SET ESTATUS = 0 WHERE idGrupoLectura =" + idGrupoLectura.ToString();
+            consulta = "UPDATE GrupoLectura SET ESTATUS = false WHERE idGrupoLectura =" + idGrupoLectura.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
         }

@@ -34,7 +34,7 @@ namespace proyectoSQL
             int idProveedorRevista = (int)dgvActividad.SelectedRows[0].Cells[0].Value;
             string idProveedor = txtIDProveedor.Text;
             string revista = txtRevista.Text;
-            consulta = consulta = "UPDATE ProveedorRevista SET idProveedor = '" + idProveedor + txtRevista + "' WHERE idProveedorRevista = " + idProveedorRevista.ToString();
+            consulta = "UPDATE ProveedorRevista  SET idProveedor = '" + idProveedor + "', idRevista = '" + revista + "' WHERE idProveedorRevista = " + idProveedorRevista.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
             txtIDProveedor.Clear();
@@ -44,7 +44,7 @@ namespace proyectoSQL
         private void btnBorrar_Click(object sender, EventArgs e)
         {
             int idProveedorRevista = (int)dgvActividad.SelectedRows[0].Cells[0].Value;
-            consulta = "UPDATE ProveedorRevista SET ESTATUS = 0 WHERE idProveedorRevista =" + idProveedorRevista.ToString();
+            consulta = "UPDATE ProveedorRevista SET ESTATUS = false WHERE idProveedorRevista =" + idProveedorRevista.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
         }

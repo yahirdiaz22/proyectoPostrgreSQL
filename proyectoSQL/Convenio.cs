@@ -44,7 +44,7 @@ namespace proyectoSQL
             string fechainicio = txtFechaInicio.Text;
             string fechafinal = txtFechaFinal.Text;
             string idBiblioteca = txtIDBiblio.Text;
-            consulta = consulta = "UPDATE Convenio SET descripcion = '" + descripcion + "', '" + fechainicio + "', '" + fechafinal + "', '" + idBiblioteca + "' WHERE idConvenio = " + idConvenio.ToString();
+            consulta = "UPDATE Convenio SET descripcion = '" + descripcion + "',fechaInicio =  '" + fechainicio + "', fechaFinal =  '" + fechafinal + "', idBiblioteca = '" + idBiblioteca + "' WHERE idConvenio = " + idConvenio.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
             txtDescripcion.Clear();
@@ -57,7 +57,7 @@ namespace proyectoSQL
         private void btnBorrar_Click(object sender, EventArgs e)
         {
             int idConvenio = (int)dgvAdquisicion.SelectedRows[0].Cells[0].Value;
-            consulta = "UPDATE Convenio SET ESTATUS = 0 WHERE idConvenio =" + idConvenio.ToString();
+            consulta = "UPDATE Convenio SET ESTATUS = false WHERE idConvenio =" + idConvenio.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
         }

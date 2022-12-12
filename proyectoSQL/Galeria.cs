@@ -46,7 +46,7 @@ namespace proyectoSQL
             string fechainiico = txtFechaInicio.Text;
             string fechafinal = txtFechaFinal.Text;
             string idBiblioteca = txtIDBiblioteca.Text; ;
-            consulta = consulta = "UPDATE Galeria SET nombre = '" + nombre + "', '" + artista + "','" + fechainiico + "', '" + fechafinal + "','" + idBiblioteca + "' WHERE idGaleria = " + idGaleria.ToString();
+            consulta = "UPDATE Galeria SET nombre = '" + nombre + "', nombreArtista = '" + artista + "',fechaInicio = '" + fechainiico + "', fechaFinal = '" + fechafinal + "',idBiblioteca = '" + idBiblioteca + "' WHERE idGaleria = " + idGaleria.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
             txtNombre.Clear();
@@ -59,7 +59,7 @@ namespace proyectoSQL
         private void btnBorrar_Click(object sender, EventArgs e)
         {
             int idGaleria = (int)dgvActividad.SelectedRows[0].Cells[0].Value;
-            consulta = "UPDATE Galeria SET ESTATUS = 0 WHERE idGaleria =" + idGaleria.ToString();
+            consulta = "UPDATE Galeria SET ESTATUS = false WHERE idGaleria =" + idGaleria.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
         }

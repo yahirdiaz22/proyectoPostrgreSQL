@@ -43,8 +43,7 @@ namespace proyectoSQL
             int idEjemplares = (int)dgvActividad.SelectedRows[0].Cells[0].Value;
             string Total = txtEjemplare.Text;
             string descripcion = txtDescripcion.Text;
-
-            consulta = consulta = "UPDATE Ejemplares SET totalEjemplares = '" + Total + "', '" + descripcion + "' WHERE idEjemplares = " + idEjemplares.ToString();
+            consulta = "UPDATE Ejemplares SET totalEjemplares = '" + Total + "', descripcion = '" + descripcion + "' WHERE idEjemplares = " + idEjemplares.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
             txtDescripcion.Clear();
@@ -54,10 +53,7 @@ namespace proyectoSQL
         private void btnBorrar_Click(object sender, EventArgs e)
         {
             int idEjemplares = (int)dgvActividad.SelectedRows[0].Cells[0].Value;
-            string descripcion = txtDescripcion.Text;
-            string numero = txtEjemplare.Text;
-
-            consulta = consulta = "UPDATE Ejemplares SET descripcion = '" + descripcion + "', '" + numero + "' WHERE idEjemplares = " + idEjemplares.ToString();
+            consulta = "UPDATE Ejemplares SET ESTATUS = false WHERE idEditorialRevista =" + idEjemplares.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
             txtEjemplare.Clear();

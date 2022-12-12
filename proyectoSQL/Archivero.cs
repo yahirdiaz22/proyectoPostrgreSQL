@@ -49,7 +49,7 @@ namespace proyectoSQL
             string avisos = txtAvisos.Text;
             string idBiblioteca = txtidbiblio.Text;
             int idArchivero = (int)dgvActividad.SelectedRows[0].Cells[0].Value;
-            consulta = "  UPDATE Archivero SET folletos ='" + folletos + "','" + recortes + "','" + ilustraciones + "','" + volantes + "','" + avisos + "','" + idBiblioteca + "' WHERE idArchivero = " + idArchivero.ToString();
+            consulta = "  UPDATE Archivero SET folletos ='" + folletos + "', recortes ='" + recortes + "',ilustraciones ='" + ilustraciones + "',volantes ='" + volantes + "',avisos ='" + avisos + "',idBiblioteca ='" + idBiblioteca + "' WHERE idArchivero = " + idArchivero.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
             txtFolletos.Clear();
@@ -63,7 +63,7 @@ namespace proyectoSQL
         private void btnBorrar_Click(object sender, EventArgs e)
         {
             int idActividad = (int)dgvActividad.SelectedRows[0].Cells[0].Value;
-            consulta = "UPDATE Actividad SET ESTATUS = 0 WHERE idActividad =" + idActividad.ToString();
+            consulta = "UPDATE Actividad SET ESTATUS = false WHERE idActividad =" + idActividad.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
         }

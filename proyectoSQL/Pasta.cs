@@ -34,10 +34,10 @@ namespace proyectoSQL
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            int idMulta = (int)dgvActividad.SelectedRows[0].Cells[0].Value;
+            int idPasta = (int)dgvActividad.SelectedRows[0].Cells[0].Value;
             string color = txtColor.Text;
             string pasta = txtTipo.Text;
-            consulta = consulta = "UPDATE Multa SET color = '" + color + pasta + "' WHERE idMulta = " + idMulta.ToString();
+            consulta = "UPDATE Pasta  SET color = '" + color + "', tipoPasta = '" + pasta + "' WHERE idPasta = " + idPasta.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
             txtTipo.Clear();
@@ -47,7 +47,7 @@ namespace proyectoSQL
         private void btnBorrar_Click(object sender, EventArgs e)
         {
             int idMulta = (int)dgvActividad.SelectedRows[0].Cells[0].Value;
-            consulta = "UPDATE Multa SET ESTATUS = 0 WHERE idMulta =" + idMulta.ToString();
+            consulta = "UPDATE Multa SET ESTATUS = false WHERE idMulta =" + idMulta.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
         }

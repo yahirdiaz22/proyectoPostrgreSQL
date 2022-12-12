@@ -46,7 +46,7 @@ namespace proyectoSQL
             string descripcion = txtDescripcion.Text;
             string cantidad = txtCantidad.Text;
             string editorial = txtEditorial.Text;
-            consulta = consulta = "UPDATE Imprenta SET nombre = '" + nombre + "', '" + numero + "','" + descripcion + "','" + cantidad + "','" + editorial + "' WHERE idImprenta = " + idImprenta.ToString();
+            consulta = "UPDATE Imprenta SET nombre = '" + nombre + "', numeroImprenta = '" + numero + "',descripcion = '" + descripcion + "', cantidadTotal = '" + cantidad + "',idEditorial = '" + editorial + "' WHERE idImprenta = " + idImprenta.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
             txtCantidad.Clear();
@@ -60,7 +60,7 @@ namespace proyectoSQL
         private void btnBorrar_Click(object sender, EventArgs e)
         {
             int idImprenta = (int)dgvActividad.SelectedRows[0].Cells[0].Value;
-            consulta = "UPDATE Imprenta SET ESTATUS = 0 WHERE idImprenta =" + idImprenta.ToString();
+            consulta = "UPDATE Imprenta SET ESTATUS = false WHERE idImprenta =" + idImprenta.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
         }

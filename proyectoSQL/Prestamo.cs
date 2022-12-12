@@ -41,7 +41,7 @@ namespace proyectoSQL
             string fecha = txtPrestamo.Text;
             string fechaEntrega = txtFechaEntrega.Text;
             string credencial = txtIDCredencial.Text;
-            consulta = consulta = "UPDATE Prestamo SET fecha = '" + fecha + "', '" + fechaEntrega + "','" + credencial + "' WHERE idPrestamo = " + idPrestamo.ToString();
+            consulta = "UPDATE Prestamo SET fecha = '" + fecha + "', fecheEntrega = '" + fechaEntrega + "',idCredencial = '" + credencial + "' WHERE idPrestamo = " + idPrestamo.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
             txtIDCredencial.Clear();
@@ -52,7 +52,7 @@ namespace proyectoSQL
         private void btnBorrar_Click(object sender, EventArgs e)
         {
             int idPrestamo = (int)dgvActividad.SelectedRows[0].Cells[0].Value;
-            consulta = "UPDATE Prestamo SET ESTATUS = 0 WHERE idPrestamo =" + idPrestamo.ToString();
+            consulta = "UPDATE Prestamo SET ESTATUS = false WHERE idPrestamo =" + idPrestamo.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
         }

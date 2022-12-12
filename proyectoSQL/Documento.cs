@@ -57,7 +57,7 @@ namespace proyectoSQL
             string planos = txtPlano.Text;
 
             string idBiblioteca = txtIDBil.Text;
-            consulta = consulta = "UPDATE idDocumento SET video = '" + video + "', '" + cds + "', '" + dvd + "', '" + mapas + "','" + planos + "','" + idBiblioteca + "' WHERE idDocumento = " + idDocumento.ToString();
+            consulta = "UPDATE Documento SET videos = '" + video + "', cds =  '" + cds + "', dvd = '" + dvd + "', mapas = '" + mapas + "',planos = '" + planos + "',idBiblioteca = '" + idBiblioteca + "' WHERE idDocumento = " + idDocumento.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
             txtVideo.Clear();
@@ -72,7 +72,7 @@ namespace proyectoSQL
         private void btnBorrar_Click(object sender, EventArgs e)
         {
             int idDocumento = (int)dgvActividadPrograma.SelectedRows[0].Cells[0].Value;
-            consulta = "UPDATE Documento SET ESTATUS = 0 WHERE idDocumento =" + idDocumento.ToString();
+            consulta = "UPDATE Documento SET ESTATUS = false WHERE idDocumento =" + idDocumento.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
         }

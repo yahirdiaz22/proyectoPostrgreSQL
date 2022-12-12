@@ -46,7 +46,7 @@ namespace proyectoSQL
             string descripcion = txtDescripcion.Text;
             string pais = txtPais.Text;
             string libro = txtIDLibro.Text;
-            consulta = consulta = "UPDATE Idioma SET descripcion = '" + nombre + "', '" + descripcion + "','" + pais + "','" + libro + "' WHERE idIdioma = " + idIdioma.ToString();
+            consulta = "UPDATE Idioma SET nombreIdioma = '" + nombre + "',descripcion =  '" + descripcion + "',paisOrigen = '" + pais + "', idLibro = '" + libro + "' WHERE idIdioma = " + idIdioma.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
             txtPais.Clear();
@@ -58,7 +58,7 @@ namespace proyectoSQL
         private void btnBorrar_Click(object sender, EventArgs e)
         {
             int idIdioma = (int)dgvActividad.SelectedRows[0].Cells[0].Value;
-            consulta = "UPDATE Clasificacion SET ESTATUS = 0 WHERE idIdioma =" + idIdioma.ToString();
+            consulta = "UPDATE Clasificacion SET ESTATUS = false WHERE idIdioma =" + idIdioma.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
         }

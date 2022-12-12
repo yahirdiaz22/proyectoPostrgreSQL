@@ -44,7 +44,7 @@ namespace proyectoSQL
             string numero = txtNumero.Text;
             string descripcion = txtDescripcion.Text;
             string idClasificacion = txtIDClasificacion.Text;
-            consulta = consulta = "UPDATE Estanteria SET numeroEstanteria = " + numero + "', '" + descripcion + "','" + idClasificacion + "' WHERE idEstanteria = " + idEstanteria.ToString();
+            consulta = "  UPDATE Estanteria SET numeroEstanteria ='" + numero + "',descripcion = '" + descripcion + "',idClasificacion = '" + idClasificacion + "'WHERE idEstanteria = " + idEstanteria.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
             txtNumero.Clear();
@@ -55,7 +55,7 @@ namespace proyectoSQL
         private void btnBorrar_Click(object sender, EventArgs e)
         {
             int idEstanteria = (int)dgvActividad.SelectedRows[0].Cells[0].Value;
-            consulta = "UPDATE Estanteria SET ESTATUS = 0 WHERE idEstanteria =" + idEstanteria.ToString();
+            consulta = "UPDATE Estanteria SET ESTATUS = false WHERE idEstanteria =" + idEstanteria.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
         }

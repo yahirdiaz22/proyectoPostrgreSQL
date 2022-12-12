@@ -39,8 +39,8 @@ namespace proyectoSQL
         {
             int idEditorialRevista = (int)dgvActividad.SelectedRows[0].Cells[0].Value;
             string idEditorial = txtIDColeccion.Text;
-            string idLibro = txtIDLibro.Text;
-            consulta = consulta = "UPDATE idEditorialRevista SET idEditorial = '" + idEditorial + "', '" + idLibro + "' WHERE idEditorialRevista = " + idEditorialRevista.ToString();
+            string idRevista = txtIDLibro.Text;
+            consulta = "UPDATE EditorialRevista SET idEditorial = '" + idEditorial + "',idRevista = '" + idRevista + "' WHERE idEditorialRevista = " + idEditorialRevista.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
             txtIDColeccion.Clear();
@@ -50,7 +50,7 @@ namespace proyectoSQL
         private void btnBorrar_Click(object sender, EventArgs e)
         {
             int idEditorialRevista = (int)dgvActividad.SelectedRows[0].Cells[0].Value;
-            consulta = "UPDATE EditorialRevista SET ESTATUS = 0 WHERE idEditorialRevista =" + idEditorialRevista.ToString();
+            consulta = "UPDATE EditorialRevista SET ESTATUS = false WHERE idEditorialRevista =" + idEditorialRevista.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
         }

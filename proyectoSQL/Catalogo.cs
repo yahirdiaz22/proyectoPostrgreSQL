@@ -48,7 +48,7 @@ namespace proyectoSQL
             string titulo = txtTitulo.Text;
             string referencia = txtReferencia.Text;
             string idBiblioteca = txtidBiblio.Text;
-            consulta = consulta = "UPDATE Catalogo SET nombre = '" + nombre + "', '" + materias + "', '" + titulo + "', '" + referencia + "', '" + idBiblioteca + "' WHERE idCatalogo = " + idCatalogo.ToString();
+            consulta = "UPDATE Catalogo SET autor  = '" + nombre + "', materias = '" + materias + "', titulo = '" + titulo + "', referenciaBibliografica = '" + referencia + "', idBiblioteca = '" + idBiblioteca + "' WHERE idCatalogo = " + idCatalogo.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
             txtTitulo.Clear();
@@ -61,7 +61,7 @@ namespace proyectoSQL
         private void btnBorrar_Click(object sender, EventArgs e)
         {
             int idCatalogo = (int)dgvActividad.SelectedRows[0].Cells[0].Value;
-            consulta = "UPDATE Catalogo SET ESTATUS = 0 WHERE idCatalogo =" + idCatalogo.ToString();
+            consulta = "UPDATE Catalogo SET ESTATUS = false WHERE idCatalogo =" + idCatalogo.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
         }

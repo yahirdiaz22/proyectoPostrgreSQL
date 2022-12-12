@@ -44,7 +44,7 @@ namespace proyectoSQL
             string fecha = txtFecha.Text;
             string descripcion = txtDesripcion.Text;
             string idBiblioteca = txtIDBiblioteca.Text;
-            consulta = consulta = "UPDATE idTaller SET nombre = '" + descripcion + idBiblioteca + "' WHERE idTaller = " + idTaller.ToString();
+            consulta = "UPDATE Taller  SET nombre = '" + nombre + "', fecha = '" + fecha + "',descripcion = '" + descripcion + "',idBiblioteca = '" + idBiblioteca + "' WHERE idTaller = " + idTaller.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
             txtDesripcion.Clear();
@@ -56,7 +56,7 @@ namespace proyectoSQL
         private void btnBorrar_Click(object sender, EventArgs e)
         {
             int idTaller = (int)dgvActividad.SelectedRows[0].Cells[0].Value;
-            consulta = "UPDATE Taller SET ESTATUS = 0 WHERE idTaller =" + idTaller.ToString();
+            consulta = "UPDATE Taller SET ESTATUS = false WHERE idTaller =" + idTaller.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
         }

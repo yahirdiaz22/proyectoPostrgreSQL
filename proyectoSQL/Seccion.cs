@@ -50,7 +50,7 @@ namespace proyectoSQL
             string coleccion = txtColeccion.Text;
             string autoservicio = txtCopias.Text;
             string idBiblioteca = txtIDBiblioteca.Text;
-            consulta = consulta = "UPDATE Secciones SET lecturaConsulta = '" + lectura + "', '" + video + "','" + foto + "', '" + hemeroteca + "','" + coleccion + "', '" + autoservicio + "','" + idBiblioteca + "' WHERE idSecciones = " + idSeccion.ToString();
+            consulta = "UPDATE Secciones SET lecturaConsulta = '" + lectura + "', videoteka = '" + video + "',fonoteca = '" + foto + "', hemeroteca = '" + hemeroteca + "',coleccionLocal = '" + coleccion + "', autoServicioFotoCopias = '" + autoservicio + "',idBiblioteca = '" + idBiblioteca + "' WHERE idSecciones = " + idSeccion.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
             txtColeccion.Clear();
@@ -64,7 +64,7 @@ namespace proyectoSQL
         private void btnBorrar_Click(object sender, EventArgs e)
         {
             int idSeccion = (int)dgvActividad.SelectedRows[0].Cells[0].Value;
-            consulta = "UPDATE Secciones SET ESTATUS = 0 WHERE idSecciones =" + idSeccion.ToString();
+            consulta = "UPDATE Secciones SET ESTATUS = false WHERE idSecciones =" + idSeccion.ToString();
             ConexionPostgre.ejecutaConsulta(consulta);
             MostrarDatos();
         }
